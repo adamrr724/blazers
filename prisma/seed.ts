@@ -56,7 +56,7 @@ const players = [
   {
     name: "Matisse Thybulle",
     position: "Shooting Guard",
-    jerseyNumber: "10",
+    jerseyNumber: "4",
     imageUrl: "/images/players/thybulle.png",
     officialNickname: null
   },
@@ -84,28 +84,28 @@ const players = [
   {
     name: "Kris Murray",
     position: "Small Forward",
-    jerseyNumber: "25",
+    jerseyNumber: "24",
     imageUrl: "/images/players/murray.png",
     officialNickname: null
   },
   {
     name: "Ryan Rupert",
     position: "Shooting Guard",
-    jerseyNumber: "50",
+    jerseyNumber: "21",
     imageUrl: "/images/players/rupert.png",
     officialNickname: null
   },
   {
     name: "Caleb Love",
     position: "Shooting Guard",
-    jerseyNumber: "20",
+    jerseyNumber: "2",
     imageUrl: "/images/players/love.png",
     officialNickname: null
   },
   {
     name: "Sidy Cissoko",
     position: "Guard",
-    jerseyNumber: "12",
+    jerseyNumber: "91",
     imageUrl: "/images/players/cissoko.png",
     officialNickname: null
   }
@@ -113,15 +113,15 @@ const players = [
 
 async function main() {
   console.log('Seeding database...')
-  
+
   // Only create demo accounts in development
   if (process.env.NODE_ENV !== 'production') {
     console.log('Creating demo accounts for development...')
-    
+
     // Hash passwords for demo users
     const adminPassword = await bcrypt.hash('admin123', 12)
     const userPassword = await bcrypt.hash('password', 12)
-    
+
     // Create admin user
     const admin = await prisma.user.upsert({
       where: { email: 'admin@blazers.com' },
@@ -145,16 +145,16 @@ async function main() {
         role: 'USER'
       }
     })
-    
+
     console.log('Demo accounts created:', { admin: admin.email, user: user.email })
-    
+
     // Create some sample nicknames in development
     const scoot = await prisma.player.findFirst({ where: { name: "Scoot Henderson" } })
     const shaedon = await prisma.player.findFirst({ where: { name: "Shaedon Sharpe" } })
 
     if (scoot) {
       await prisma.nickname.upsert({
-        where: { 
+        where: {
           nickname_playerId: {
             nickname: "Scooter",
             playerId: scoot.id
@@ -172,7 +172,7 @@ async function main() {
 
     if (shaedon) {
       await prisma.nickname.upsert({
-        where: { 
+        where: {
           nickname_playerId: {
             nickname: "The Cobra",
             playerId: shaedon.id
@@ -194,7 +194,7 @@ async function main() {
   // Create players
   for (const playerData of players) {
     await prisma.player.upsert({
-      where: { 
+      where: {
         name: playerData.name
       },
       update: playerData,
