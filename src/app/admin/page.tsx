@@ -36,8 +36,7 @@ export default async function AdminPage() {
           }
         }
       }
-    },
-    orderBy: { name: 'asc' }
+    }
   });
 
   const allNicknames = await db.nickname.findMany({

@@ -21,8 +21,7 @@ export default async function Home() {
           }
         }
       }
-    },
-    orderBy: { name: 'asc' }
+    }
   });
 
   return (
