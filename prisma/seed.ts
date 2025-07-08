@@ -12,7 +12,7 @@ const players = [
     officialNickname: "The Deni"
   },
   {
-    name: "Scoot Henderson",
+    name: "Sterling Henderson",
     position: "Point Guard",
     jerseyNumber: "00",
     imageUrl: "/images/players/henderson.png",
@@ -89,7 +89,7 @@ const players = [
     officialNickname: null
   },
   {
-    name: "Ryan Rupert",
+    name: "Rayan Rupert",
     position: "Shooting Guard",
     jerseyNumber: "21",
     imageUrl: "/images/players/rupert.png",
@@ -149,7 +149,7 @@ async function main() {
     console.log('Demo accounts created:', { admin: admin.email, user: user.email })
 
     // Create some sample nicknames in development
-    const scoot = await prisma.player.findFirst({ where: { name: "Scoot Henderson" } })
+    const scoot = await prisma.player.findFirst({ where: { name: "Sterling Henderson" } })
     const shaedon = await prisma.player.findFirst({ where: { name: "Shaedon Sharpe" } })
 
     if (scoot) {
