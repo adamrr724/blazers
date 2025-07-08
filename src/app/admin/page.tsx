@@ -30,7 +30,11 @@ export default async function AdminPage() {
             select: { votes: true }
           }
         },
-        orderBy: { createdAt: 'desc' }
+        orderBy: {
+          votes: {
+            _count: 'desc'
+          }
+        }
       }
     },
     orderBy: { name: 'asc' }

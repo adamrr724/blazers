@@ -66,7 +66,11 @@ export async function GET() {
           select: { votes: true }
         }
       },
-      orderBy: { createdAt: 'desc' }
+      orderBy: {
+        votes: {
+          _count: 'desc'
+        }
+      }
     });
 
     return NextResponse.json(nicknames);

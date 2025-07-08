@@ -14,9 +14,15 @@ export default async function Home() {
           _count: {
             select: { votes: true }
           }
+        },
+        orderBy: {
+          votes: {
+            _count: 'desc'
+          }
         }
       }
-    }
+    },
+    orderBy: { name: 'asc' }
   });
 
   return (
