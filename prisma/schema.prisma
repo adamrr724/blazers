@@ -1,4 +1,4 @@
-// Prisma Schema - Works with both SQLite (dev) and PostgreSQL (production)
+// Prisma Schema - PostgreSQL for production deployment
 
 generator client {
   provider = "prisma-client-js"

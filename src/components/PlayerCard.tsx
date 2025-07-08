@@ -92,7 +92,7 @@ export default function PlayerCard({ player, session }: PlayerCardProps) {
   const getLocalImagePath = (playerName: string) => {
     const nameMap: { [key: string]: string } = {
       'Deni Avdija': '/images/players/avdija.png',
-      'Scoot Henderson': '/images/players/henderson.png',
+      'Sterling Henderson': '/images/players/henderson.png',
       'Shaedon Sharpe': '/images/players/sharpe.png',
       'Toumani Camara': '/images/players/camara.png',
       'Jerami Grant': '/images/players/grant.png',
@@ -103,7 +103,7 @@ export default function PlayerCard({ player, session }: PlayerCardProps) {
       'Hansen Yang': '/images/players/yang.png',
       'Duop Reath': '/images/players/reath.png',
       'Kris Murray': '/images/players/murray.png',
-      'Ryan Rupert': '/images/players/rupert.png',
+      'Rayan Rupert': '/images/players/rupert.png',
       'Caleb Love': '/images/players/love.png',
       'Sidy Cissoko': '/images/players/cissoko.png'
     };
