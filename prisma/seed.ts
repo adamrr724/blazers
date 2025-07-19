@@ -108,6 +108,13 @@ const players = [
     jerseyNumber: "91",
     imageUrl: "/images/players/cissoko.png",
     officialNickname: null
+  },
+  {
+    name: "Damian Lillard",
+    position: "Point Guard",
+    jerseyNumber: "0",
+    imageUrl: "/images/players/lillard.png",
+    officialNickname: "Dame"
   }
 ]
 

@@ -35,7 +35,7 @@ export default function PlayerCard({ player, session }: PlayerCardProps) {
       alert('Please sign in to vote!');
       return;
     }
-    
+
     setIsVoting(true);
     try {
       const response = await fetch('/api/votes', {
@@ -95,6 +95,7 @@ export default function PlayerCard({ player, session }: PlayerCardProps) {
       'Sterling Henderson': '/images/players/henderson.png',
       'Shaedon Sharpe': '/images/players/sharpe.png',
       'Toumani Camara': '/images/players/camara.png',
+      'Damian Lillard': '/images/players/lillard.png',
       'Jerami Grant': '/images/players/grant.png',
       'Donovan Clingan': '/images/players/clingan.png',
       'Jrue Holiday': '/images/players/holiday.png',
@@ -118,11 +119,10 @@ export default function PlayerCard({ player, session }: PlayerCardProps) {
           alt={`${player.name} headshot`}
           width={300}
           height={400}
-          className={`w-full h-64 bg-gray-100 ${
-            player.name === 'Hansen Yang' 
-              ? 'object-contain object-center' 
-              : 'object-cover object-top'
-          }`}
+          className={`w-full h-64 bg-gray-100 ${player.name === 'Hansen Yang'
+            ? 'object-contain object-center'
+            : 'object-cover object-top'
+            }`}
           priority={false}
           placeholder="blur"
           blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQwMCIgZmlsbD0iI2Y5ZmFmYiIvPgo8L3N2Zz4="
@@ -133,18 +133,18 @@ export default function PlayerCard({ player, session }: PlayerCardProps) {
           }}
         />
       </div>
-      
+
       <div className="p-6">
         <div className="flex items-center justify-between mb-3">
           <h3 className="text-xl font-bold text-black">#{player.jerseyNumber}</h3>
           <span className="text-sm font-medium text-gray-600 bg-gray-100 px-2 py-1 rounded">{player.position}</span>
         </div>
-        
+
         <h2 className="text-2xl font-bold text-black mb-3">{player.name}</h2>
-        
+
         <div className="space-y-3">
           <h4 className="font-bold text-gray-900 text-lg">Fan Nicknames:</h4>
-          
+
           {player.nicknames.length === 0 ? (
             <p className="text-sm text-gray-600 italic">No approved nicknames yet</p>
           ) : (
@@ -175,7 +175,7 @@ export default function PlayerCard({ player, session }: PlayerCardProps) {
               ))}
             </div>
           )}
-          
+
           <div className="mt-5 pt-4 border-t border-gray-200">
             {session && (
               !showSuggestForm ? (
@@ -186,33 +186,33 @@ export default function PlayerCard({ player, session }: PlayerCardProps) {
                   Suggest New Nickname
                 </button>
               ) : (
-              <form onSubmit={handleSuggestion} className="space-y-3">
-                <input
-                  type="text"
-                  value={suggestion}
-                  onChange={(e) => setSuggestion(e.target.value)}
-                  placeholder="Enter nickname suggestion"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 text-gray-900 placeholder-gray-500"
-                />
-                <div className="flex space-x-2">
-                  <button
-                    type="submit"
-                    className="flex-1 bg-red-600 text-white py-3 px-4 rounded-md hover:bg-red-700 font-medium transition-colors"
-                  >
-                    Submit
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setShowSuggestForm(false);
-                      setSuggestion('');
-                    }}
-                    className="flex-1 bg-gray-300 text-gray-700 py-3 px-4 rounded-md hover:bg-gray-400 font-medium transition-colors"
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </form>
+                <form onSubmit={handleSuggestion} className="space-y-3">
+                  <input
+                    type="text"
+                    value={suggestion}
+                    onChange={(e) => setSuggestion(e.target.value)}
+                    placeholder="Enter nickname suggestion"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 text-gray-900 placeholder-gray-500"
+                  />
+                  <div className="flex space-x-2">
+                    <button
+                      type="submit"
+                      className="flex-1 bg-red-600 text-white py-3 px-4 rounded-md hover:bg-red-700 font-medium transition-colors"
+                    >
+                      Submit
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setShowSuggestForm(false);
+                        setSuggestion('');
+                      }}
+                      className="flex-1 bg-gray-300 text-gray-700 py-3 px-4 rounded-md hover:bg-gray-400 font-medium transition-colors"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </form>
               )
             )}
           </div>
