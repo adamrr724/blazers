@@ -1,4 +1,5 @@
-// Prisma Schema - PostgreSQL for production deployment
+// Production Prisma Schema (PostgreSQL)
+// Copy this content to schema.prisma when deploying to production
 
 generator client {
   provider = "prisma-client-js"
